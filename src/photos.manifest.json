@@ -1,0 +1,118 @@
+{
+  "photos": [
+    {
+      "id": "2025-08-15-250717-go200-L35-1-4",
+      "filename": "250717-go200-L35-1-4.jpg",
+      "date": "July 17, 2025",
+      "description": "",
+      "alt": "",
+      "location": "",
+      "tags": [],
+      "film": "Kodak Gold 200",
+      "camera": "Nikon L35AF",
+      "optimizedImages": [
+        {
+          "width": 800,
+          "webp": "250717-go200-L35-1-4/800w.webp",
+          "jpg": "250717-go200-L35-1-4/800w.jpg"
+        },
+        {
+          "width": 1600,
+          "webp": "250717-go200-L35-1-4/1600w.webp",
+          "jpg": "250717-go200-L35-1-4/1600w.jpg"
+        },
+        {
+          "width": 2400,
+          "webp": "250717-go200-L35-1-4/2400w.webp",
+          "jpg": "250717-go200-L35-1-4/2400w.jpg"
+        },
+        {
+          "width": 3000,
+          "webp": "250717-go200-L35-1-4/3000w.webp",
+          "jpg": "250717-go200-L35-1-4/3000w.jpg"
+        },
+        {
+          "width": "original",
+          "webp": "250717-go200-L35-1-4/original.webp",
+          "jpg": "250717-go200-L35-1-4.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2025-08-15-250717-go200-L35-1-28",
+      "filename": "250717-go200-L35-1-28.jpg",
+      "date": "July 17, 2025",
+      "description": "",
+      "alt": "",
+      "location": "",
+      "tags": [],
+      "film": "Kodak Gold 200",
+      "camera": "Nikon L35AF",
+      "optimizedImages": [
+        {
+          "width": 800,
+          "webp": "250717-go200-L35-1-28/800w.webp",
+          "jpg": "250717-go200-L35-1-28/800w.jpg"
+        },
+        {
+          "width": 1600,
+          "webp": "250717-go200-L35-1-28/1600w.webp",
+          "jpg": "250717-go200-L35-1-28/1600w.jpg"
+        },
+        {
+          "width": 2400,
+          "webp": "250717-go200-L35-1-28/2400w.webp",
+          "jpg": "250717-go200-L35-1-28/2400w.jpg"
+        },
+        {
+          "width": 3000,
+          "webp": "250717-go200-L35-1-28/3000w.webp",
+          "jpg": "250717-go200-L35-1-28/3000w.jpg"
+        },
+        {
+          "width": "original",
+          "webp": "250717-go200-L35-1-28/original.webp",
+          "jpg": "250717-go200-L35-1-28.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2025-08-15-250717-go200-L35-1-12",
+      "filename": "250717-go200-L35-1-12.jpg",
+      "date": "July 17, 2025",
+      "description": "",
+      "alt": "",
+      "location": "",
+      "tags": [],
+      "film": "Kodak Gold 200",
+      "camera": "Nikon L35AF",
+      "optimizedImages": [
+        {
+          "width": 800,
+          "webp": "250717-go200-L35-1-12/800w.webp",
+          "jpg": "250717-go200-L35-1-12/800w.jpg"
+        },
+        {
+          "width": 1600,
+          "webp": "250717-go200-L35-1-12/1600w.webp",
+          "jpg": "250717-go200-L35-1-12/1600w.jpg"
+        },
+        {
+          "width": 2400,
+          "webp": "250717-go200-L35-1-12/2400w.webp",
+          "jpg": "250717-go200-L35-1-12/2400w.jpg"
+        },
+        {
+          "width": 3000,
+          "webp": "250717-go200-L35-1-12/3000w.webp",
+          "jpg": "250717-go200-L35-1-12/3000w.jpg"
+        },
+        {
+          "width": "original",
+          "webp": "250717-go200-L35-1-12/original.webp",
+          "jpg": "250717-go200-L35-1-12.jpg"
+        }
+      ]
+    }
+  ]
+}

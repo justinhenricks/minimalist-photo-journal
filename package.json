@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "My personal website and photo journal, built with minimalism, performance, and web-standards in mind.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "photos": "node scripts/process-photos",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --port 4173",
@@ -18,6 +20,7 @@
     "prettier": "^3.6.2",
     "tsx": "^4.20.4",
     "typescript": "^5.9.2",
-    "vite": "^7.1.2"
+    "vite": "^7.1.2",
+    "@types/node": "^24.2.1"
   }
 }
