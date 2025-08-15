@@ -16,4 +16,5 @@ My personal website and photo journal, built with minimalism, performance, and w
 ## Tech
 
 - [Vite](https://vite.dev/)
-- CSS/JS/HTML
+- [pnpm](https://pnpm.io/)
+- CSS/JS (TS)/HTML
