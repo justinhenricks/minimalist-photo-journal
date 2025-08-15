@@ -16,11 +16,14 @@
   "license": "ISC",
   "packageManager": "pnpm@10.9.0",
   "devDependencies": {
+    "@types/node": "^24.2.1",
+    "@types/pretty": "^2.0.3",
     "eslint": "^9.33.0",
+    "plaiceholder": "^3.0.0",
     "prettier": "^3.6.2",
+    "pretty": "^2.0.0",
     "tsx": "^4.20.4",
     "typescript": "^5.9.2",
-    "vite": "^7.1.2",
-    "@types/node": "^24.2.1"
+    "vite": "^7.1.2"
   }
 }
