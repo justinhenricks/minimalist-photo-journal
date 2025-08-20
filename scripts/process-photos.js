@@ -164,7 +164,8 @@ async function buildHeroHTML(photo) {
   // If your caption fully describes the image, you may set img alt="" and put the description here.
   const iso = (new Date(photo.date)).toISOString().slice(0,10);
 
-  const placeholder = await generatePlaceholder(photo.filename);
+  // Generate placeholder from the smallest image if we have it
+  const placeholder = await generatePlaceholder(photo.optimizedImages ? photo.optimizedImages[0]?.jpg : photo.filename);
 
   return `
       <figure>
