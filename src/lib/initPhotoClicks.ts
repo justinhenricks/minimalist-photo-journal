@@ -43,7 +43,6 @@ export function initPhotoClicks(
       const img = target.closest(imgSelector) as HTMLImageElement | null
       if (!img || img.tagName !== 'IMG') return
 
-      // Stop link navigation around images
       e.preventDefault?.()
 
       // Mirror the preferred <source> srcset onto the modal <img>
@@ -51,9 +50,7 @@ export function initPhotoClicks(
       const preferred = pickPreferredSource(picture)
 
       modal.openWith({
-        // ensure something paints immediately
         src: img.currentSrc || img.src,
-        // allow browser to re‑select optimal candidate for modal viewport
         srcset: preferred?.getAttribute('srcset') || undefined,
         sizes: modalSizes(),
         alt: img.alt || '',

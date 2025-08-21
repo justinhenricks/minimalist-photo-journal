@@ -79,6 +79,10 @@ img {
     font-style: italic;
   }
 
+  .photo-clickable{
+    cursor: zoom-in;
+  }
+
 /* Tablet */
 @media (min-width: 768px) {
 

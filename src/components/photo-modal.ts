@@ -169,7 +169,6 @@ class PhotoModal extends HTMLElement {
     }
     this.img.addEventListener('load', onLoad, { once: true })
 
-    // Source order to avoid double download:
     if (p.srcset) {
       if (p.sizes) this.img.sizes = p.sizes // set sizes first
       this.img.srcset = p.srcset // then srcset (browser picks one)
