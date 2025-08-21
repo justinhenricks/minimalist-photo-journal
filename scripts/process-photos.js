@@ -138,7 +138,7 @@ const generatePlaceholder = async (filename) => {
   }
 }
 
-function buildPictureHTML(photo) {
+function buildPictureHTML(photo, isHero=false) {
   if (!photo.optimizedImages?.length) {
     return `<img src="/photos/${photo.filename}" alt="${photo.alt || photo.description || ''}" loading="lazy" decoding="async">`;
   }
@@ -148,7 +148,7 @@ function buildPictureHTML(photo) {
   return `
     <picture>
       <source type="image/webp" srcset="${webp}" sizes="${sizesAttr}">
-      <img class="opacity-0" onload="this.classList.remove('opacity-0'); this.classList.add('z-index-2');" src="/photos/${photo.filename}" alt="${photo.alt || photo.description || ''}" loading="eager">
+      <img class="opacity-0" onload="this.classList.remove('opacity-0'); this.classList.add('z-index-2');" src="/photos/${photo.filename}" alt="${photo.alt || photo.description || ''}" loading=${isHero ? "eager" : "lazy"}>
       <noscript><img class="z-index-2" src="/photos/${photo.filename}" alt="${photo.alt || photo.description || ''}" loading="eager"></noscript>
 
     </picture>`.trim();
@@ -188,8 +188,8 @@ async function buildHeroHTML(photo) {
       </figure>`.trim();
 }
 
-function buildGridHTML(photos) {
-  const items = photos.map((p) => {
+async function buildGridHTML(photos) {
+  const items = await Promise.all(photos.map(async (p) => {
     const picture = buildPictureHTML(p);
     const iso = (() => {
       try {
@@ -200,9 +200,17 @@ function buildGridHTML(photos) {
 
     const details = [p.film, p.camera].filter(Boolean).map(esc).join(', ');
 
+    const placeholder = await generatePlaceholder(p.optimizedImages ? p.optimizedImages[0]?.jpg : p.filename);
+
     return `
-        <figure class="photo" data-photo-id="${esc(p.id)}">
+        <figure>
+          <div class="image-container">
+            ${placeholder ? `
+            <img class="placeholder" src="${placeholder}" alt="${p.alt || p.description}" />
+            <div class="backdrop-blur"></div>
+          ` : ''}
             ${picture}
+          </div>
           <figcaption class="meta">
             <p class="meta-title">
               ${iso ? `<time datetime="${esc(iso)}">${esc(formatShort(p.date))}</time>` : esc(formatShort(p.date))}
@@ -212,10 +220,9 @@ function buildGridHTML(photos) {
             ${details ? `<p class="meta-details">${details}</p>` : ''}
           </figcaption>
         </figure>`.trim();
-    }).join('\n');
+  }));
 
-
-    return `<div class="grid">${items}</div>`.trim();
+  return `<div class="grid">${items.join('\n')}</div>`.trim();
 }
 
 async function run() {
@@ -269,7 +276,7 @@ async function run() {
 
   // build partials
   const latest = photos[0] || null;
-  const grid   = buildGridHTML(photos.slice(1)); // grid excludes hero
+  const grid   = await buildGridHTML(photos.slice(1)); // grid excludes hero
   const hero   = await buildHeroHTML(latest);
 
   writeFileSync('src/_photos-grid.html', pretty(grid || ''), {ocd:true});
