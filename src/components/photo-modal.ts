@@ -8,7 +8,7 @@ export type PhotoPayload = {
   camera?: string
   film?: string
   description?: string
-
+  location?: string
   placeholder?: string // tiny blur data URL (keep using data-placeholder)
 }
 
@@ -25,6 +25,7 @@ class PhotoModal extends HTMLElement {
   private cameraEl!: HTMLElement
   private filmEl!: HTMLElement
   private descEl!: HTMLElement
+  private locationEl!: HTMLElement
 
   constructor() {
     super()
@@ -43,11 +44,14 @@ class PhotoModal extends HTMLElement {
   
             <figcaption class="cap">
               <div class="row primary">
-                <strong id="title" class="date"></strong>
-                <span class="dot">•</span><span class="camera"></span>
-                <span class="dot">•</span><span class="film"></span>
+                <span class="date"></span>
+                <span class="desc"></span>
+                <span class="location"></location>
               </div>
-              <div class="row secondary desc"></div>
+              <div class="row secondary">
+                <span class="camera"></span>
+                <span class="film"></span>
+              </div>
             </figcaption>
           </figure>
         </dialog>
@@ -58,7 +62,7 @@ class PhotoModal extends HTMLElement {
           #dlg::backdrop { backdrop-filter: blur(8px); background: rgba(0,0,0,.35); }
   
           .card {
-            margin: 0; display: grid; grid-template-rows: 1fr auto; gap: .5rem;
+            margin: 0; display: grid; grid-template-rows: 1fr auto;
             background: rgba(255,255,255,.92); border-radius: 16px; overflow: hidden;
             box-shadow: 0 10px 40px rgba(0,0,0,.35);
           }
@@ -94,9 +98,9 @@ class PhotoModal extends HTMLElement {
           .ready .placeholder { opacity: 0; }
   
           /* Caption */
-          .cap { padding: .75rem 1rem 1rem; color:#000; font:14px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; }
-          .row.primary { display:flex; flex-wrap:wrap; gap:.5rem; align-items:baseline; font-size:.95rem; }
-          .row.secondary { margin-top:.25rem; color:#444; }
+          .cap { padding: .75rem 1rem 1rem; color:#000; display: grid; gap: 0.25rem; font-size: 0.8rem; }
+          .row.primary { display:flex; flex-wrap:wrap; gap:.5rem; align-items:baseline; font-weight: 600; }
+          .row.secondary { font-style: italic; }
           .dot { opacity:.4; }
   
           /* Close button */
@@ -116,10 +120,11 @@ class PhotoModal extends HTMLElement {
     this.container = this.root.querySelector('#stage') as HTMLElement
     this.ph = this.root.querySelector('#ph') as HTMLImageElement
     this.img = this.root.querySelector('#img') as HTMLImageElement
-    this.titleEl = this.root.querySelector('#title') as HTMLElement
+    this.titleEl = this.root.querySelector('.date') as HTMLElement
     this.cameraEl = this.root.querySelector('.camera') as HTMLElement
     this.filmEl = this.root.querySelector('.film') as HTMLElement
     this.descEl = this.root.querySelector('.desc') as HTMLElement
+    this.locationEl = this.root.querySelector('.location') as HTMLElement
 
     // binds
     this.onBackdropClick = this.onBackdropClick.bind(this)
@@ -157,10 +162,11 @@ class PhotoModal extends HTMLElement {
 
     // Metadata
     this.img.alt = p.alt ?? ''
-    this.titleEl.textContent = p.date ?? ''
+    this.titleEl.textContent = `${p.date} // `
     this.cameraEl.textContent = p.camera ?? '—'
     this.filmEl.textContent = p.film ?? '—'
-    this.descEl.textContent = p.description ?? ''
+    this.descEl.textContent = `${p.description} //`
+    this.locationEl.textContent = p.location ?? ''
 
     // Fade-in when the full image is ready
     const onLoad = () => {
@@ -176,7 +182,10 @@ class PhotoModal extends HTMLElement {
       this.img.src = p.src
     }
 
-    if (!this.dlg.open) this.dlg.showModal()
+    if (!this.dlg.open) {
+      this.dlg.showModal()
+      document.body.style.overflow = 'hidden'
+    }
   }
 
   /** Simple open/close helpers */
@@ -190,6 +199,7 @@ class PhotoModal extends HTMLElement {
     this.img.removeAttribute('srcset')
     this.img.removeAttribute('sizes')
     this.ph.removeAttribute('src')
+    document.body.style.overflow = ''
   }
 
   /** Close when clicking outside the content card */

@@ -220,7 +220,14 @@ export function buildPictureHTML(photo, role = 'grid', placeholder) {
     <picture>
       <source type="image/webp" srcset="${webpSet}" sizes="${sizes}">
       <source type="image/jpeg" srcset="${jpgSet}" sizes="${sizes}">
-      <img class="photo-clickable" data-placeholder="${placeholder || ''}" ${imgAttrs({ isHero })} src="/photos/${defaultJpg}" alt="${photo.alt || photo.description || ''}">
+      <img class="photo-clickable" 
+       data-date="${formatShort(photo.date)}"
+       data-placeholder="${placeholder || ''}"
+       data-description="${photo.description}"
+       data-camera="${photo.camera}"
+       data-film="${photo.film}"
+       data-location="${photo.location}"
+       ${imgAttrs({ isHero })} src="/photos/${defaultJpg}" alt="${photo.alt || photo.description || ''}">
       <noscript><img class="z-index-2" src="/photos/${defaultJpg}" alt="${photo.alt || photo.description || ''}" loading="eager"></noscript>
     </picture>`.trim();
 }

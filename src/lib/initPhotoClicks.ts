@@ -58,6 +58,7 @@ export function initPhotoClicks(
         camera: img.dataset.camera,
         film: img.dataset.film,
         description: img.dataset.description,
+        location: img.dataset.location,
         placeholder: img.dataset.placeholder,
       })
     },
