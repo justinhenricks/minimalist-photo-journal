@@ -61,6 +61,7 @@ export function initPhotoClicks(
         camera: img.dataset.camera,
         film: img.dataset.film,
         description: img.dataset.description,
+        placeholder: img.dataset.placeholder,
       })
     },
     // Not passive because we may call preventDefault()

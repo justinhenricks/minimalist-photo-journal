@@ -193,7 +193,7 @@ const generatePlaceholder = async (filename) => {
   }
 }
 
-export function buildPictureHTML(photo, role = 'grid') {
+export function buildPictureHTML(photo, role = 'grid', placeholder) {
   const isHero = role === 'hero';
 
   // No optimization available -> simple <img>
@@ -220,7 +220,7 @@ export function buildPictureHTML(photo, role = 'grid') {
     <picture>
       <source type="image/webp" srcset="${webpSet}" sizes="${sizes}">
       <source type="image/jpeg" srcset="${jpgSet}" sizes="${sizes}">
-      <img class="photo-clickable" ${imgAttrs({ isHero })} src="/photos/${defaultJpg}" alt="${photo.alt || photo.description || ''}">
+      <img class="photo-clickable" data-placeholder="${placeholder || ''}" ${imgAttrs({ isHero })} src="/photos/${defaultJpg}" alt="${photo.alt || photo.description || ''}">
       <noscript><img class="z-index-2" src="/photos/${defaultJpg}" alt="${photo.alt || photo.description || ''}" loading="eager"></noscript>
     </picture>`.trim();
 }
@@ -228,15 +228,13 @@ export function buildPictureHTML(photo, role = 'grid') {
 async function buildHeroHTML(photo) {
   if (!photo) return `<div class="no-photo"><p>No photos yet</p></div>`;
 
-  // TODO: Fix the size stuff its fucked
-  const sizesAttr = `(max-width: 1200px) 100vw, (max-width: 2000px) 1200px, 1600px`;
-  const picture = buildPictureHTML(photo, 'hero');
+
+    // Generate placeholder from the smallest image if we have it
+    const placeholder = await generatePlaceholder(photo.optimizedImages ? photo.optimizedImages[0]?.jpg : photo.filename);
+  const picture = buildPictureHTML(photo, 'hero', placeholder);
 
   // If your caption fully describes the image, you may set img alt="" and put the description here.
   const iso = (new Date(photo.date)).toISOString().slice(0,10);
-
-  // Generate placeholder from the smallest image if we have it
-  const placeholder = await generatePlaceholder(photo.optimizedImages ? photo.optimizedImages[0]?.jpg : photo.filename);
 
   return `
       <figure>
@@ -261,7 +259,8 @@ async function buildHeroHTML(photo) {
 
 async function buildGridHTML(photos) {
   const items = await Promise.all(photos.map(async (p) => {
-    const picture = buildPictureHTML(p, 'grid');
+    const placeholder = await generatePlaceholder(p.optimizedImages ? p.optimizedImages[0]?.jpg : p.filename);
+    const picture = buildPictureHTML(p, 'grid', placeholder);
     const iso = (() => {
       try {
         const d = new Date(p.date);
@@ -270,8 +269,6 @@ async function buildGridHTML(photos) {
     })();
 
     const details = [p.film, p.camera].filter(Boolean).map(esc).join(', ');
-
-    const placeholder = await generatePlaceholder(p.optimizedImages ? p.optimizedImages[0]?.jpg : p.filename);
 
     return `
         <figure>
