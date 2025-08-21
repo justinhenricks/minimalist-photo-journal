@@ -80,16 +80,23 @@ img {
   }
 
 /* Tablet */
-@media (min-width: var(--tablet-width)) {
+@media (min-width: 768px) {
 
 }
 
 /* Desktop */
-@media (min-width: var(--desktop-width)) {
-
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 /* Large Desktop */
-@media (min-width: var(--large-desktop-width)) {
-
+@media (min-width: 1800px) {
+    .hero {
+        max-width: var(--max-width-xl);
+    }
+    .grid {
+        max-width: var(--max-width-xl);
+    }
 }

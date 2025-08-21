@@ -2,12 +2,8 @@
   font-family: monospace;
   color: #000;
   background: #fff;
-  --max-width: 1200px;
+  --max-width: 1250px;
   --max-width-xl: 1600px;
-
-  --tablet-width: 768px;
-  --desktop-width: 1024px;
-  --large-desktop-width: 1440px;
 }
 
 *,:before,:after {
@@ -79,12 +75,12 @@ footer {
 
 
 /* Tablet */
-@media (min-width: var(--tablet-width)) {
+@media (min-width: 768px) {
 
 }
 
 /* Desktop */
-@media (min-width: var(--desktop-width)) {
+@media (min-width: 1024px) {
   h1 {
     font-size: 1.5rem;
   }
@@ -103,6 +99,6 @@ footer {
 }
 
 /* Large Desktop */
-@media (min-width: var(--large-desktop-width)) {
+@media (min-width: 1440px) {
 
 }
