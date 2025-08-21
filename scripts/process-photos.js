@@ -15,17 +15,17 @@ const PHOTOS_JSON = './src/photos.manifest.json';
 
 const FILM_ORGANIZER_CONFIG = '/Users/justin/workspace/film-organizer/config.yml';
 
-const IMAGE_SIZES = [
-  { width: 800,  suffix: '800w'  },
-  { width: 1600, suffix: '1600w' },
-  { width: 2400, suffix: '2400w' },
-  { width: 3000, suffix: '3000w' }
-];
+const IMAGE_WIDTHS = [480, 800, 1200, 1600, 2000, 2400, 3200];
+
 const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
 
 function checkImageMagick() {
   try { execSync('convert -version', { stdio: 'ignore' }); return true; }
   catch { return false; }
+}
+
+function magick(cmd) {
+  execSync(cmd, { stdio: 'ignore' });
 }
 
 function esc(s = '') {
@@ -37,7 +37,6 @@ function esc(s = '') {
     "'": '&#39;'
   }[m]));
 }
-
 
 function loadFilmOrganizerConfig() {
   try {
@@ -82,7 +81,27 @@ function generatePhotoId(filename) {
   return `${today}-${basename(filename, extname(filename))}`;
 }
 
-function optimizeImage(sourcePath, filename, imagickOK) {
+/**
+ * sizes that match your CSS:
+ * - XL (≥1800px): containers jump to 1600px
+ * - Desktop (≥1024px): containers at 1250px, grid is 2 columns
+ * - Below: 1 column, full width
+ */
+function sizesFor(role) {
+  if (role === 'hero') {
+    // Hero displays as 100vw until container caps; then 1250px (desktop) or 1600px (XL)
+    return '(min-width: 1800px) 1600px, (min-width: 1024px) 1250px, 100vw';
+  }
+  if (role === 'grid') {
+    // Two columns inside the capped container on desktop:
+    // ~ (container - gap)/2; gap is 1rem; we’ll approximate to 620px/800px
+    return '(min-width: 1800px) 800px, (min-width: 1024px) 620px, 100vw';
+  }
+  // default conservative
+  return '100vw';
+}
+
+export function optimizeImage(sourcePath, filename, imagickOK) {
   const baseName = basename(filename, extname(filename));
   const photoFolder = join(PHOTOS_DIR, baseName);
   if (!existsSync(photoFolder)) mkdirSync(photoFolder, { recursive: true });
@@ -90,22 +109,35 @@ function optimizeImage(sourcePath, filename, imagickOK) {
   const out = [];
 
   if (!imagickOK) {
-    // no optimization, only “original”
     out.push({ width: 'original', webp: filename, jpg: filename });
     return out;
   }
 
-  for (const size of IMAGE_SIZES) {
-    const webpPath = join(photoFolder, `${size.suffix}.webp`);
-    const jpgPath  = join(photoFolder, `${size.suffix}.jpg`);
-    execSync(`convert "${sourcePath}" -resize ${size.width}x -quality 90 "${webpPath}"`, { stdio: 'ignore' });
-    execSync(`convert "${sourcePath}" -resize ${size.width}x -quality 85 "${jpgPath}"`, { stdio: 'ignore' });
-    out.push({ width: size.width, webp: `${baseName}/${size.suffix}.webp`, jpg: `${baseName}/${size.suffix}.jpg` });
+  // Common flags aimed at crisp result + lean bytes
+  // - Lanczos resize + strip metadata
+  // - WebP at q=82 with good effort, JPEG slightly lower to keep bytes down
+  for (const w of IMAGE_WIDTHS) {
+    const webpPath = join(photoFolder, `${w}w.webp`);
+    const jpgPath  = join(photoFolder, `${w}w.jpg`);
+
+    // WEBP
+    magick(
+      `convert "${sourcePath}" -filter Lanczos -resize ${w}x ` +
+      `-strip -define webp:method=6 -quality 82 "${webpPath}"`
+    );
+
+    // JPEG
+    magick(
+      `convert "${sourcePath}" -filter Lanczos -resize ${w}x ` +
+      `-strip -sampling-factor 4:2:0 -quality 85 "${jpgPath}"`
+    );
+
+    out.push({ width: w, webp: `${baseName}/${w}w.webp`, jpg: `${baseName}/${w}w.jpg` });
   }
 
-  // high-quality original webp
+  // High-quality original webp as last resort
   const originalWebp = join(photoFolder, 'original.webp');
-  execSync(`convert "${sourcePath}" -quality 95 "${originalWebp}"`, { stdio: 'ignore' });
+  magick(`convert "${sourcePath}" -strip -define webp:method=6 -quality 90 "${originalWebp}"`);
   out.push({ width: 'original', webp: `${baseName}/original.webp`, jpg: filename });
 
   return out;
@@ -118,6 +150,29 @@ function formatShort(dateString) {
     const short = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()];
     return `${short} ${d.getDate()}, ${d.getFullYear()}`;
   } catch { return dateString || ''; }
+}
+
+function buildSrcset(images, kind /* 'webp' | 'jpg' */) {
+  return images
+    .filter(x => x.width !== 'original')
+    .map(x => `/photos/${x[kind]} ${x.width}w`)
+    .join(', ');
+}
+
+
+function imgAttrs({ isHero }) {
+  const base = [
+    `class="opacity-0"`,
+    `onload="this.classList.remove('opacity-0'); this.classList.add('z-index-2');"`
+  ];
+
+  if (isHero) {
+    // load first image fast
+    base.push(`loading="eager"`, `fetchpriority="high"`);
+  } else {
+    base.push(`loading="lazy"`);
+  }
+  return base.join(' ');
 }
 
 const generatePlaceholder = async (filename) => {
@@ -138,19 +193,35 @@ const generatePlaceholder = async (filename) => {
   }
 }
 
-function buildPictureHTML(photo, isHero=false) {
+export function buildPictureHTML(photo, role = 'grid') {
+  const isHero = role === 'hero';
+
+  // No optimization available -> simple <img>
   if (!photo.optimizedImages?.length) {
-    return `<img src="/photos/${photo.filename}" alt="${photo.alt || photo.description || ''}" loading="lazy" decoding="async">`;
+    return `<img src="/photos/${photo.filename}" alt="${photo.alt || photo.description || ''}" ${imgAttrs({ isHero })}>`;
   }
-  const sizesAttr = `(min-width:1440px) 20vw, (min-width:1024px) 24vw, (min-width:768px) 31vw, (min-width:480px) 48vw, 100vw`;
-  const webp = photo.optimizedImages.filter(x => x.width !== 'original').map(x => `/photos/${x.webp} ${x.width}w`).join(', ');
-  const jpg  = photo.optimizedImages.filter(x => x.width !== 'original').map(x => `/photos/${x.jpg} ${x.width}w`).join(', ');
+
+  const sizes = sizesFor(role);
+  const webpSet = buildSrcset(photo.optimizedImages, 'webp');
+  const jpgSet  = buildSrcset(photo.optimizedImages, 'jpg');
+
+  // IMPORTANT: Provide a reasonable default src (not original) for browsers ignoring srcset.
+  // Choose the closest width to the primary display target for each role.
+  const defaultJpg =
+    role === 'hero'
+      ? photo.optimizedImages.find(x => x.width === 1600)?.jpg
+        || photo.optimizedImages.find(x => x.width === 1200)?.jpg
+        || photo.filename
+      : photo.optimizedImages.find(x => x.width === 800)?.jpg
+        || photo.optimizedImages.find(x => x.width === 1200)?.jpg
+        || photo.filename;
+
   return `
     <picture>
-      <source type="image/webp" srcset="${webp}" sizes="${sizesAttr}">
-      <img class="opacity-0" onload="this.classList.remove('opacity-0'); this.classList.add('z-index-2');" src="/photos/${photo.filename}" alt="${photo.alt || photo.description || ''}" loading=${isHero ? "eager" : "lazy"}>
-      <noscript><img class="z-index-2" src="/photos/${photo.filename}" alt="${photo.alt || photo.description || ''}" loading="eager"></noscript>
-
+      <source type="image/webp" srcset="${webpSet}" sizes="${sizes}">
+      <source type="image/jpeg" srcset="${jpgSet}" sizes="${sizes}">
+      <img ${imgAttrs({ isHero })} src="/photos/${defaultJpg}" alt="${photo.alt || photo.description || ''}">
+      <noscript><img class="z-index-2" src="/photos/${defaultJpg}" alt="${photo.alt || photo.description || ''}" loading="eager"></noscript>
     </picture>`.trim();
 }
 
@@ -159,7 +230,7 @@ async function buildHeroHTML(photo) {
 
   // TODO: Fix the size stuff its fucked
   const sizesAttr = `(max-width: 1200px) 100vw, (max-width: 2000px) 1200px, 1600px`;
-  const picture = buildPictureHTML(photo, sizesAttr);
+  const picture = buildPictureHTML(photo, 'hero');
 
   // If your caption fully describes the image, you may set img alt="" and put the description here.
   const iso = (new Date(photo.date)).toISOString().slice(0,10);
@@ -190,7 +261,7 @@ async function buildHeroHTML(photo) {
 
 async function buildGridHTML(photos) {
   const items = await Promise.all(photos.map(async (p) => {
-    const picture = buildPictureHTML(p);
+    const picture = buildPictureHTML(p, 'grid');
     const iso = (() => {
       try {
         const d = new Date(p.date);

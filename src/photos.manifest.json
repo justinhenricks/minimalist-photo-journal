@@ -1,20 +1,30 @@
 {
   "photos": [
     {
-      "id": "2025-08-15-250717-go200-L35-1-4",
+      "id": "2025-08-21-250717-go200-L35-1-4",
       "filename": "250717-go200-L35-1-4.jpg",
       "date": "July 17, 2025",
-      "description": "Glen and Ray",
+      "description": "TODO_UPDATE_DESCRIPTION",
       "alt": "TODO_UPDATE_ALT",
-      "location": "Newport, RI",
+      "location": "TODO_UPDATE_LOCATION",
       "tags": [],
       "film": "Kodak Gold 200",
       "camera": "Nikon L35AF",
       "optimizedImages": [
         {
+          "width": 480,
+          "webp": "250717-go200-L35-1-4/480w.webp",
+          "jpg": "250717-go200-L35-1-4/480w.jpg"
+        },
+        {
           "width": 800,
           "webp": "250717-go200-L35-1-4/800w.webp",
           "jpg": "250717-go200-L35-1-4/800w.jpg"
+        },
+        {
+          "width": 1200,
+          "webp": "250717-go200-L35-1-4/1200w.webp",
+          "jpg": "250717-go200-L35-1-4/1200w.jpg"
         },
         {
           "width": 1600,
@@ -22,14 +32,19 @@
           "jpg": "250717-go200-L35-1-4/1600w.jpg"
         },
         {
+          "width": 2000,
+          "webp": "250717-go200-L35-1-4/2000w.webp",
+          "jpg": "250717-go200-L35-1-4/2000w.jpg"
+        },
+        {
           "width": 2400,
           "webp": "250717-go200-L35-1-4/2400w.webp",
           "jpg": "250717-go200-L35-1-4/2400w.jpg"
         },
         {
-          "width": 3000,
-          "webp": "250717-go200-L35-1-4/3000w.webp",
-          "jpg": "250717-go200-L35-1-4/3000w.jpg"
+          "width": 3200,
+          "webp": "250717-go200-L35-1-4/3200w.webp",
+          "jpg": "250717-go200-L35-1-4/3200w.jpg"
         },
         {
           "width": "original",
@@ -39,7 +54,7 @@
       ]
     },
     {
-      "id": "2025-08-15-250717-go200-L35-1-28",
+      "id": "2025-08-21-250717-go200-L35-1-28",
       "filename": "250717-go200-L35-1-28.jpg",
       "date": "July 17, 2025",
       "description": "TODO_UPDATE_DESCRIPTION",
@@ -50,9 +65,19 @@
       "camera": "Nikon L35AF",
       "optimizedImages": [
         {
+          "width": 480,
+          "webp": "250717-go200-L35-1-28/480w.webp",
+          "jpg": "250717-go200-L35-1-28/480w.jpg"
+        },
+        {
           "width": 800,
           "webp": "250717-go200-L35-1-28/800w.webp",
           "jpg": "250717-go200-L35-1-28/800w.jpg"
+        },
+        {
+          "width": 1200,
+          "webp": "250717-go200-L35-1-28/1200w.webp",
+          "jpg": "250717-go200-L35-1-28/1200w.jpg"
         },
         {
           "width": 1600,
@@ -60,14 +85,19 @@
           "jpg": "250717-go200-L35-1-28/1600w.jpg"
         },
         {
+          "width": 2000,
+          "webp": "250717-go200-L35-1-28/2000w.webp",
+          "jpg": "250717-go200-L35-1-28/2000w.jpg"
+        },
+        {
           "width": 2400,
           "webp": "250717-go200-L35-1-28/2400w.webp",
           "jpg": "250717-go200-L35-1-28/2400w.jpg"
         },
         {
-          "width": 3000,
-          "webp": "250717-go200-L35-1-28/3000w.webp",
-          "jpg": "250717-go200-L35-1-28/3000w.jpg"
+          "width": 3200,
+          "webp": "250717-go200-L35-1-28/3200w.webp",
+          "jpg": "250717-go200-L35-1-28/3200w.jpg"
         },
         {
           "width": "original",
@@ -77,7 +107,7 @@
       ]
     },
     {
-      "id": "2025-08-15-250717-go200-L35-1-12",
+      "id": "2025-08-21-250717-go200-L35-1-12",
       "filename": "250717-go200-L35-1-12.jpg",
       "date": "July 17, 2025",
       "description": "TODO_UPDATE_DESCRIPTION",
@@ -88,9 +118,19 @@
       "camera": "Nikon L35AF",
       "optimizedImages": [
         {
+          "width": 480,
+          "webp": "250717-go200-L35-1-12/480w.webp",
+          "jpg": "250717-go200-L35-1-12/480w.jpg"
+        },
+        {
           "width": 800,
           "webp": "250717-go200-L35-1-12/800w.webp",
           "jpg": "250717-go200-L35-1-12/800w.jpg"
+        },
+        {
+          "width": 1200,
+          "webp": "250717-go200-L35-1-12/1200w.webp",
+          "jpg": "250717-go200-L35-1-12/1200w.jpg"
         },
         {
           "width": 1600,
@@ -98,14 +138,19 @@
           "jpg": "250717-go200-L35-1-12/1600w.jpg"
         },
         {
+          "width": 2000,
+          "webp": "250717-go200-L35-1-12/2000w.webp",
+          "jpg": "250717-go200-L35-1-12/2000w.jpg"
+        },
+        {
           "width": 2400,
           "webp": "250717-go200-L35-1-12/2400w.webp",
           "jpg": "250717-go200-L35-1-12/2400w.jpg"
         },
         {
-          "width": 3000,
-          "webp": "250717-go200-L35-1-12/3000w.webp",
-          "jpg": "250717-go200-L35-1-12/3000w.jpg"
+          "width": 3200,
+          "webp": "250717-go200-L35-1-12/3200w.webp",
+          "jpg": "250717-go200-L35-1-12/3200w.jpg"
         },
         {
           "width": "original",
