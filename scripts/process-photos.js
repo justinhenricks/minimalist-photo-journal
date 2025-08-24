@@ -193,7 +193,7 @@ const generatePlaceholder = async (filename) => {
   }
 }
 
-export function buildPictureHTML(photo, role = 'grid', placeholder) {
+export function buildPictureHTML(photo, role = 'grid', placeholder, index) {
   const isHero = role === 'hero';
 
   // No optimization available -> simple <img>
@@ -227,6 +227,7 @@ export function buildPictureHTML(photo, role = 'grid', placeholder) {
        data-camera="${photo.camera}"
        data-film="${photo.film}"
        data-location="${photo.location}"
+       data-index="${index}"
        ${imgAttrs({ isHero })} src="/photos/${defaultJpg}" alt="${photo.alt || photo.description || ''}">
       <noscript><img class="z-index-2" src="/photos/${defaultJpg}" alt="${photo.alt || photo.description || ''}" loading="eager"></noscript>
     </picture>`.trim();
@@ -238,7 +239,7 @@ async function buildHeroHTML(photo) {
 
     // Generate placeholder from the smallest image if we have it
     const placeholder = await generatePlaceholder(photo.optimizedImages ? photo.optimizedImages[0]?.jpg : photo.filename);
-  const picture = buildPictureHTML(photo, 'hero', placeholder);
+  const picture = buildPictureHTML(photo, 'hero', placeholder, 0);
 
   // If your caption fully describes the image, you may set img alt="" and put the description here.
   const iso = (new Date(photo.date)).toISOString().slice(0,10);
@@ -265,9 +266,9 @@ async function buildHeroHTML(photo) {
 }
 
 async function buildGridHTML(photos) {
-  const items = await Promise.all(photos.map(async (p) => {
+  const items = await Promise.all(photos.map(async (p, i) => {
     const placeholder = await generatePlaceholder(p.optimizedImages ? p.optimizedImages[0]?.jpg : p.filename);
-    const picture = buildPictureHTML(p, 'grid', placeholder);
+    const picture = buildPictureHTML(p, 'grid', placeholder, i + 1);
     const iso = (() => {
       try {
         const d = new Date(p.date);

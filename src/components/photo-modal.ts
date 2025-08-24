@@ -1,3 +1,5 @@
+import { getPhotoPayloadFromImg } from '../lib/utilities'
+
 export type PhotoPayload = {
   src: string // fallback if no srcset
   srcset?: string // copy from preferred <source>
@@ -10,6 +12,7 @@ export type PhotoPayload = {
   description?: string
   location?: string
   placeholder?: string // tiny blur data URL (keep using data-placeholder)
+  curIndex: string
 }
 
 class PhotoModal extends HTMLElement {
@@ -27,10 +30,16 @@ class PhotoModal extends HTMLElement {
   private descEl!: HTMLElement
   private locationEl!: HTMLElement
 
+  private curIndex!: number
+
+  private decodedOnce
+
+  // const decodedOnce = new Set<number>()
+
   constructor() {
     super()
     this.root = this.attachShadow({ mode: 'open' })
-
+    this.decodedOnce = new Set<number>()
     this.root.innerHTML = `
         <dialog id="dlg" aria-labelledby="title">
           <button id="close" class="btn-close" aria-label="Close">&times;</button>
@@ -39,7 +48,7 @@ class PhotoModal extends HTMLElement {
             <div class="image-container" id="stage">
               <img id="ph" class="placeholder" alt="">
               <div class="backdrop-blur"></div>
-              <img id="img" class="full" alt="" decoding="async">
+              <img id="img" alt="" decoding="async">
             </div>
   
             <figcaption class="cap">
@@ -90,11 +99,15 @@ class PhotoModal extends HTMLElement {
   
           .full {
             opacity: 0;
-            transition: opacity 180ms ease-out;
+            transition: opacity 260ms ease-out;
+            will-change: opacity
           }
   
           /* When main is ready, fade it in and hide placeholder */
-          .ready .full { opacity: 1; }
+          .ready .full { 
+            opacity: 1; 
+            transition: opacity 260ms ease-out;
+          }
           .ready .placeholder { opacity: 0; }
   
           /* Caption */
@@ -151,11 +164,14 @@ class PhotoModal extends HTMLElement {
     this.img.removeAttribute('srcset')
     this.img.removeAttribute('sizes')
 
+    console.log('p cure indec', p.curIndex)
+
     // Placeholder blur
-    if (p.placeholder) {
+    if (!this.decodedOnce.has(parseInt(p.curIndex)) && p.placeholder) {
       this.ph.src = p.placeholder
       this.ph.style.display = ''
     } else {
+      console.log('ok no placeholder')
       this.ph.removeAttribute('src')
       this.ph.style.display = 'none'
     }
@@ -167,19 +183,56 @@ class PhotoModal extends HTMLElement {
     this.filmEl.textContent = p.film ?? '—'
     this.descEl.textContent = `${p.description} //`
     this.locationEl.textContent = p.location ?? ''
+    this.curIndex = parseInt(p.curIndex)
 
     // Fade-in when the full image is ready
-    const onLoad = () => {
-      this.container.classList.add('ready')
-      this.img.removeEventListener('load', onLoad)
-    }
-    this.img.addEventListener('load', onLoad, { once: true })
+    // const onLoad = () => {
+    //   // INSERT_YOUR_CODE
+    //   // setTimeout(() => {
+    //   //   this.container.classList.add('ready')
+    //   //   this.img.removeEventListener('load', onLoad)
+    //   // }, 125)
+    //   // return
+    //   this.container.classList.add('ready')
+    //   this.img.removeEventListener('load', onLoad)
+    // }
+    // this.img.addEventListener('load', onLoad, { once: true })
 
     if (p.srcset) {
       if (p.sizes) this.img.sizes = p.sizes // set sizes first
       this.img.srcset = p.srcset // then srcset (browser picks one)
     } else {
       this.img.src = p.src
+    }
+
+    console.log('this.decodedOnce', this.decodedOnce)
+
+    if (this.decodedOnce.has(this.curIndex)) {
+      // force a frame before enabling ready so opacity animates
+      requestAnimationFrame(() => {
+        console.log('adding ready')
+        this.container.classList.add('ready')
+      })
+    } else {
+      // Make sure we fade only after the image is actually decodable
+      // (works for cached and networked images)
+      this.img
+        .decode()
+        .then(() => {
+          this.decodedOnce.add(this.curIndex)
+          requestAnimationFrame(() => {
+            this.container.classList.add('ready')
+          })
+        })
+        .catch(() => {
+          // Fallback: if decode failed (rare), still reveal on load
+          const onLoad = () => {
+            this.decodedOnce.add(this.curIndex)
+            this.container.classList.add('ready')
+            this.img.removeEventListener('load', onLoad)
+          }
+          this.img.addEventListener('load', onLoad, { once: true })
+        })
     }
 
     if (!this.dlg.open) {
@@ -192,6 +245,7 @@ class PhotoModal extends HTMLElement {
   open() {
     if (!this.dlg.open) this.dlg.showModal()
   }
+
   close() {
     if (this.dlg.open) this.dlg.close()
     this.container.classList.remove('ready')
@@ -215,6 +269,30 @@ class PhotoModal extends HTMLElement {
   }
   private onKeyDown(e: KeyboardEvent) {
     if (this.dlg.open && e.key === 'Escape') this.close()
+
+    if (this.dlg.open && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
+      let img
+      let modalPhotoPayload
+      switch (e.key) {
+        case 'ArrowLeft':
+          console.log('arrow left index', this.curIndex)
+          if (this.curIndex === 0) return
+
+          img = document.querySelector(`img[data-index="${this.curIndex - 1}"]`) as HTMLImageElement
+          modalPhotoPayload = getPhotoPayloadFromImg(img)
+
+          this.openWith(modalPhotoPayload)
+          break
+        case 'ArrowRight':
+          console.log('arrow right index', this.curIndex)
+          img = document.querySelector(`img[data-index="${this.curIndex + 1}"]`) as HTMLImageElement
+          if (!img) return null
+          modalPhotoPayload = getPhotoPayloadFromImg(img)
+
+          this.openWith(modalPhotoPayload)
+          break
+      }
+    }
   }
 }
 
