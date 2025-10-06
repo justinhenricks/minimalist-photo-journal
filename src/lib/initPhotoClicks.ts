@@ -8,7 +8,6 @@ export function initPhotoClicks(
   imgSelector = '.photo-clickable',
   modalSelector: 'photo-modal' = 'photo-modal',
 ) {
-  console.log('init photo clicks')
   const modal = document.querySelector(modalSelector)
   if (!modal) {
     console.warn(`[photo] No <${modalSelector}> found.`)
