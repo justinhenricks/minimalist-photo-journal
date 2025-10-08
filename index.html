@@ -8,7 +8,8 @@
       name="description"
       content="I'm Justin, a developer and musician in Brooklyn. I like to play music, build for the web, and shoot film when I can."
     />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
 
     <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website" />
@@ -81,6 +82,11 @@
       <nav>
         <a href="/about">about</a>
         <a href="https://ai.justinhenricks.com">justy.ai</a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
       </nav>
     </header>
     <main>
@@ -98,6 +104,31 @@
     <script type="module" src="/src/main.ts" defer></script>
     <script>
       document.getElementById('year').textContent = new Date().getFullYear()
+
+      // Dark mode toggle
+      const themeToggle = document.getElementById('theme-toggle')
+      const themeIcon = themeToggle.querySelector('.theme-icon')
+      const root = document.documentElement
+
+      const moonIcon = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>'
+      const sunIcon = '<circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" fill="none"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"/>'
+
+      // Check for saved theme preference or system preference
+      const savedTheme = localStorage.getItem('theme')
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      const theme = savedTheme || (prefersDark ? 'dark' : 'light')
+
+      root.setAttribute('data-theme', theme)
+      themeIcon.innerHTML = theme === 'dark' ? sunIcon : moonIcon
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = root.getAttribute('data-theme')
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+
+        root.setAttribute('data-theme', newTheme)
+        localStorage.setItem('theme', newTheme)
+        themeIcon.innerHTML = newTheme === 'dark' ? sunIcon : moonIcon
+      })
     </script>
     <photo-modal selector=".photo-clickable"></photo-modal>
   </body>

@@ -1,9 +1,26 @@
 :root {
   font-family: monospace;
-  color: #000;
-  background: #fff;
   --max-width: 1200px;
   --max-width-xl: 1600px;
+
+  /* Light mode colors */
+  --bg-color: #fff;
+  --text-color: #000;
+  --border-color: #000;
+  --border-color-light: #000;
+}
+
+:root[data-theme="dark"] {
+  /* Dark mode colors */
+  --bg-color: #0a0a0a;
+  --text-color: #e8e8e8;
+  --border-color: #4a9d7e;
+  --border-color-light: #4a9d7e;
+}
+
+:root {
+  color: var(--text-color);
+  background: var(--bg-color);
 }
 
 *,:before,:after {
@@ -51,7 +68,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid var(--border-color);
   padding: 1.25rem;
 }
 
@@ -69,8 +86,32 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 1.25rem;
-  border-top: 1px solid #000;
+  border-top: 1px solid var(--border-color-light);
   margin-top: 2rem;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.theme-toggle:hover {
+  opacity: 0.7;
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--text-color);
+  stroke: var(--text-color);
+  color: var(--text-color);
 }
 
 
