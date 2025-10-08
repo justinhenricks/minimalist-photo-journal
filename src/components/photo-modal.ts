@@ -98,7 +98,7 @@ class PhotoModal extends HTMLElement {
       .slide {
         position: absolute; inset: 0;
         opacity: 0; pointer-events: none;
-        transition: opacity 260ms ease-out;
+        transition: opacity 100ms ease-out;
         will-change: opacity;
       }
       .slide.active { opacity: 1; pointer-events: auto; }
@@ -108,13 +108,15 @@ class PhotoModal extends HTMLElement {
         position: absolute; inset: 0; width: 100%; height: 100%;
         object-fit: cover;
         filter: blur(16px);
+        opacity: 1;
+        transition: opacity 400ms ease-out;
       }
       .slide.ready .placeholder { opacity: 0; }
 
       .slide .full {
         position: absolute; inset: 0; width: 100%; height: 100%;
-        opacity: 0; will-change: opacity;
-        transition: opacity 260ms linear;
+        opacity: 0;
+        transition: opacity 400ms ease-out;
       }
       .slide.ready .full { opacity: 1; }
 
@@ -274,9 +276,8 @@ class PhotoModal extends HTMLElement {
     const ph = document.createElement('img')
     ph.className = 'placeholder'
     ph.alt = ''
-    if (p.placeholder && !decodedOnce.has(index)) {
+    if (p.placeholder) {
       ph.src = p.placeholder
-      ph.style.display = ''
     } else {
       ph.style.display = 'none'
     }
@@ -306,16 +307,17 @@ class PhotoModal extends HTMLElement {
     }
 
     if (decodedOnce.has(index)) {
-      reveal()
+      // Even if already decoded, wait to show the placeholder blur effect
+      setTimeout(reveal, 250)
     } else if ('decode' in img && typeof img.decode === 'function') {
       img
         .decode()
-        .then(reveal)
+        .then(() => setTimeout(reveal, 250))
         .catch(() => {
-          img.addEventListener('load', reveal, { once: true })
+          img.addEventListener('load', () => setTimeout(reveal, 250), { once: true })
         })
     } else {
-      img.addEventListener('load', reveal, { once: true })
+      img.addEventListener('load', () => setTimeout(reveal, 250), { once: true })
     }
 
     const rec: SlideEls = { root, ph, img }
