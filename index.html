@@ -3,7 +3,63 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Justin Henricks | PHoto Journal</title>
+    <title>Justin Henricks | Life & Times</title>
+    <meta
+      name="description"
+      content="I'm Justin, a developer and musician in Brooklyn. I like to play music, build for the web, and shoot film when I can."
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://justinhenricks.com/" />
+    <meta property="og:title" content="Justin Henricks | Photo Journal" />
+    <meta
+      property="og:description"
+      content="I'm Justin, a developer and musician in Brooklyn. I like to play music, build for the web, and shoot film when I can."
+    />
+    <meta property="og:image" content="https://justinhenricks.com/photos/justin/800w.jpg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://justinhenricks.com/" />
+    <meta name="twitter:title" content="Justin Henricks | Photo Journal" />
+    <meta
+      name="twitter:description"
+      content="I'm Justin, a developer and musician in Brooklyn. I like to play music, build for the web, and shoot film when I can."
+    />
+    <meta name="twitter:image" content="https://justinhenricks.com/photos/justin/800w.jpg" />
+    <meta name="twitter:creator" content="@justhenricks" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://justinhenricks.com/" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Justin Henricks",
+        "url": "https://justinhenricks.com",
+        "image": "https://justinhenricks.com/photos/justin/800w.jpg",
+        "jobTitle": "Senior Developer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Shopify"
+        },
+        "sameAs": [
+          "https://www.instagram.com/justin.henricks/",
+          "https://www.linkedin.com/in/justin-henricks/",
+          "https://github.com/justinhenricks",
+          "https://www.x.com/justhenricks"
+        ]
+      }
+    </script>
+
     <link rel="stylesheet" href="/src/styles/global.css" />
     <link rel="stylesheet" href="/src/styles/photos.css" />
   </head>
@@ -12,7 +68,7 @@
       <h1>Justin Henricks</h1>
       <nav>
         <a href="/about">about</a>
-        <a href="https://www.instagram.com/justinhenricks/">ask.ai</a>
+        <a href="https://ai.justinhenricks.com">justy.bot</a>
       </nav>
     </header>
     <main>
@@ -25,9 +81,12 @@
       </section>
     </main>
     <footer>
-      <p>&copy; 2024 Justin Henricks. Built with ❤️ and performance in mind.</p>
+      <p>&copy; <span id="year"></span> Justin Henricks. Built with ❤️.</p>
     </footer>
     <script type="module" src="/src/main.ts" defer></script>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear()
+    </script>
     <photo-modal selector=".photo-clickable"></photo-modal>
   </body>
 </html>
