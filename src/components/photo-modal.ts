@@ -140,15 +140,13 @@ class PhotoModal extends HTMLElement {
         position: absolute; inset: 0; width: 100%; height: 100%;
         object-fit: cover;
         filter: blur(16px);
-        transform: scale(1.03);
-        transition: opacity 180ms ease-out;
       }
       .slide.ready .placeholder { opacity: 0; }
 
       .slide .full {
         position: absolute; inset: 0; width: 100%; height: 100%;
         opacity: 0; will-change: opacity;
-        transition: opacity 260ms ease-out;
+        transition: opacity 260ms linear;
       }
       .slide.ready .full { opacity: 1; }
 
