@@ -14,8 +14,8 @@
   /* Dark mode colors */
   --bg-color: #0a0a0a;
   --text-color: #e8e8e8;
-  --border-color: #4a9d7e;
-  --border-color-light: #4a9d7e;
+  --border-color: #e8e8e8;
+  --border-color-light: #e8e8e8;
 }
 
 :root {
