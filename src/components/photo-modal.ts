@@ -210,7 +210,6 @@ class PhotoModal extends HTMLElement {
 
   connectedCallback() {
     this.dlg.addEventListener('click', this.onBackdropClick)
-    this.dlg.addEventListener('pointerdown', this.onBackdropPointerDown)
     this.closeBtn.addEventListener('click', this.onCloseClick)
     window.addEventListener('keydown', this.onKeyDown)
 
@@ -219,14 +218,13 @@ class PhotoModal extends HTMLElement {
     this.slidesWrap.addEventListener('pointermove', this.onPointerMove, { passive: false })
     this.slidesWrap.addEventListener('pointerup', this.onPointerUp, { passive: true })
     this.slidesWrap.addEventListener('pointercancel', this.onPointerCancel, { passive: true })
-    // wire it (connectedCallback)
+
     this.dlg.addEventListener('pointerup', this.onBackdropPointerUp)
-    // (and remove your pointerdown close listener if you added one)
   }
 
   disconnectedCallback() {
     this.dlg.removeEventListener('click', this.onBackdropClick)
-    this.dlg.addEventListener('pointerdown', this.onBackdropPointerDown)
+    this.dlg.removeEventListener('pointerup', this.onBackdropPointerUp)
     this.closeBtn.removeEventListener('click', this.onCloseClick)
     window.removeEventListener('keydown', this.onKeyDown)
 
@@ -263,18 +261,13 @@ class PhotoModal extends HTMLElement {
     document.body.style.overflow = ''
   }
 
+  isOpen() {
+    return this.dlg.open
+  }
+
   /** Close when clicking outside the content card */
   private onBackdropClick(e: MouseEvent) {
     const r = this.container.getBoundingClientRect()
-    const inside =
-      e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom
-    if (!inside) this.close()
-  }
-
-  private onBackdropPointerDown = (e: PointerEvent) => {
-    if (!this.dlg.open) return
-    const r = this.container?.getBoundingClientRect()
-    if (!r) return
     const inside =
       e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom
     if (!inside) this.close()
@@ -337,7 +330,7 @@ class PhotoModal extends HTMLElement {
       ph.style.display = 'none'
     }
 
-    const img = document.createElement('img')
+    const img = document.createElement('img') as HTMLImageElement
     img.className = 'full'
     img.alt = p.alt ?? ''
     img.decoding = 'async'
@@ -363,7 +356,7 @@ class PhotoModal extends HTMLElement {
 
     if (decodedOnce.has(index)) {
       reveal()
-    } else if ('decode' in img) {
+    } else if ('decode' in img && typeof img.decode === 'function') {
       img
         .decode()
         .then(reveal)
@@ -554,13 +547,12 @@ class PhotoModal extends HTMLElement {
       e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom
     if (inside) return
 
-    // Eat the click that will be synthesized after this pointerup,
-    // but only within the dialog, once.
+    // Eat the click that will be synthesized after this pointerup
     const stop = (ev: Event) => {
       ev.preventDefault()
       ev.stopPropagation()
     }
-    this.dlg.addEventListener('click', stop, { once: true, capture: true })
+    document.addEventListener('click', stop, { once: true, capture: true })
 
     this.close()
   }
