@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import { readFileSync } from 'node:fs'
-import { join } from 'node:path'
+import { join, resolve } from 'node:path'
 
 export default defineConfig(({ command }) => {
   return {
@@ -19,6 +19,15 @@ export default defineConfig(({ command }) => {
       }
     }],
     server: { port: 3000 },
-    build: { target: 'es2020', sourcemap: true }
+    build: {
+      target: 'es2020',
+      sourcemap: true,
+      rollupOptions: {
+        input: {
+          main: resolve(__dirname, 'index.html'),
+          about: resolve(__dirname, 'about.html')
+        }
+      }
+    }
   }
 })
