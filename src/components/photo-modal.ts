@@ -75,7 +75,7 @@ class PhotoModal extends HTMLElement {
       *, *::before, *::after { box-sizing: border-box; }
 
       #dlg { border: 0; padding: 0; background: transparent; width: fit-content; max-width: 100vw; }
-      #dlg::backdrop { backdrop-filter: blur(8px); background: rgba(0,0,0,.35); }
+      #dlg::backdrop { backdrop-filter: blur(10px); background: rgba(0,0,0,.5); }
 
       .card {
         margin: 0;
@@ -85,7 +85,13 @@ class PhotoModal extends HTMLElement {
         overflow: hidden;
         background: transparent;
         box-shadow: none;
-        width: min(96vw, 1250px);
+        width: min(96vw, 1200px);
+      }
+
+      @media (min-width: 1800px) {
+        .card {
+          width: 1600px;
+        }
       }
 
       .image-container {
