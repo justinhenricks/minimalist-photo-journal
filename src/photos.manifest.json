@@ -1,12 +1,330 @@
 {
   "photos": [
     {
-      "id": "2025-08-21-250717-go200-L35-1-4",
+      "id": "2025-10-08-250831-portra400-L35-1-16-edit",
+      "filename": "250831-portra400-L35-1-16-edit.jpg",
+      "date": "August 31, 2025",
+      "description": "Bar",
+      "alt": "A bar in Red Hook, Brooklyn, NY.",
+      "location": "Red Hook, Brooklyn, NY",
+      "tags": [],
+      "film": "Kodak Portra 400",
+      "camera": "Nikon L35AF",
+      "optimizedImages": [
+        {
+          "width": 480,
+          "webp": "250831-portra400-L35-1-16-edit/480w.webp",
+          "jpg": "250831-portra400-L35-1-16-edit/480w.jpg"
+        },
+        {
+          "width": 800,
+          "webp": "250831-portra400-L35-1-16-edit/800w.webp",
+          "jpg": "250831-portra400-L35-1-16-edit/800w.jpg"
+        },
+        {
+          "width": 1200,
+          "webp": "250831-portra400-L35-1-16-edit/1200w.webp",
+          "jpg": "250831-portra400-L35-1-16-edit/1200w.jpg"
+        },
+        {
+          "width": 1600,
+          "webp": "250831-portra400-L35-1-16-edit/1600w.webp",
+          "jpg": "250831-portra400-L35-1-16-edit/1600w.jpg"
+        },
+        {
+          "width": 2000,
+          "webp": "250831-portra400-L35-1-16-edit/2000w.webp",
+          "jpg": "250831-portra400-L35-1-16-edit/2000w.jpg"
+        },
+        {
+          "width": 2400,
+          "webp": "250831-portra400-L35-1-16-edit/2400w.webp",
+          "jpg": "250831-portra400-L35-1-16-edit/2400w.jpg"
+        },
+        {
+          "width": 3200,
+          "webp": "250831-portra400-L35-1-16-edit/3200w.webp",
+          "jpg": "250831-portra400-L35-1-16-edit/3200w.jpg"
+        },
+        {
+          "width": "original",
+          "webp": "250831-portra400-L35-1-16-edit/original.webp",
+          "jpg": "250831-portra400-L35-1-16-edit.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2025-10-08-250831-portra400-L35-1-23-edit",
+      "filename": "250831-portra400-L35-1-23-edit.jpg",
+      "date": "August 30, 2025",
+      "description": "Postcards from Ray",
+      "alt": "A women holding up a postcard at a pizza place called Roberta's in Brooklyn, NY.",
+      "location": "Roberta's, Brooklyn, NY",
+      "tags": [],
+      "film": "Kodak Portra 400",
+      "camera": "Nikon L35AF",
+      "optimizedImages": [
+        {
+          "width": 480,
+          "webp": "250831-portra400-L35-1-23-edit/480w.webp",
+          "jpg": "250831-portra400-L35-1-23-edit/480w.jpg"
+        },
+        {
+          "width": 800,
+          "webp": "250831-portra400-L35-1-23-edit/800w.webp",
+          "jpg": "250831-portra400-L35-1-23-edit/800w.jpg"
+        },
+        {
+          "width": 1200,
+          "webp": "250831-portra400-L35-1-23-edit/1200w.webp",
+          "jpg": "250831-portra400-L35-1-23-edit/1200w.jpg"
+        },
+        {
+          "width": 1600,
+          "webp": "250831-portra400-L35-1-23-edit/1600w.webp",
+          "jpg": "250831-portra400-L35-1-23-edit/1600w.jpg"
+        },
+        {
+          "width": 2000,
+          "webp": "250831-portra400-L35-1-23-edit/2000w.webp",
+          "jpg": "250831-portra400-L35-1-23-edit/2000w.jpg"
+        },
+        {
+          "width": 2400,
+          "webp": "250831-portra400-L35-1-23-edit/2400w.webp",
+          "jpg": "250831-portra400-L35-1-23-edit/2400w.jpg"
+        },
+        {
+          "width": 3200,
+          "webp": "250831-portra400-L35-1-23-edit/3200w.webp",
+          "jpg": "250831-portra400-L35-1-23-edit/3200w.jpg"
+        },
+        {
+          "width": "original",
+          "webp": "250831-portra400-L35-1-23-edit/original.webp",
+          "jpg": "250831-portra400-L35-1-23-edit.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2025-10-08-250806-sunsherb100-L35-1-18-edit",
+      "filename": "250806-sunsherb100-L35-1-18-edit.jpg",
+      "date": "August 6, 2025",
+      "description": "Life at the dog park",
+      "alt": "A man sitting on a bench at the dog park in Brooklyn, NY.",
+      "location": "Dog Park, Brooklyn, NY",
+      "tags": [],
+      "film": "Photodom. Sun Sherbert 100",
+      "camera": "Nikon L35AF",
+      "optimizedImages": [
+        {
+          "width": 480,
+          "webp": "250806-sunsherb100-L35-1-18-edit/480w.webp",
+          "jpg": "250806-sunsherb100-L35-1-18-edit/480w.jpg"
+        },
+        {
+          "width": 800,
+          "webp": "250806-sunsherb100-L35-1-18-edit/800w.webp",
+          "jpg": "250806-sunsherb100-L35-1-18-edit/800w.jpg"
+        },
+        {
+          "width": 1200,
+          "webp": "250806-sunsherb100-L35-1-18-edit/1200w.webp",
+          "jpg": "250806-sunsherb100-L35-1-18-edit/1200w.jpg"
+        },
+        {
+          "width": 1600,
+          "webp": "250806-sunsherb100-L35-1-18-edit/1600w.webp",
+          "jpg": "250806-sunsherb100-L35-1-18-edit/1600w.jpg"
+        },
+        {
+          "width": 2000,
+          "webp": "250806-sunsherb100-L35-1-18-edit/2000w.webp",
+          "jpg": "250806-sunsherb100-L35-1-18-edit/2000w.jpg"
+        },
+        {
+          "width": 2400,
+          "webp": "250806-sunsherb100-L35-1-18-edit/2400w.webp",
+          "jpg": "250806-sunsherb100-L35-1-18-edit/2400w.jpg"
+        },
+        {
+          "width": 3200,
+          "webp": "250806-sunsherb100-L35-1-18-edit/3200w.webp",
+          "jpg": "250806-sunsherb100-L35-1-18-edit/3200w.jpg"
+        },
+        {
+          "width": "original",
+          "webp": "250806-sunsherb100-L35-1-18-edit/original.webp",
+          "jpg": "250806-sunsherb100-L35-1-18-edit.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2025-10-08-250803-umax400-L35-1-13",
+      "filename": "250803-umax400-L35-1-13.jpg",
+      "date": "August 3, 2025",
+      "description": "On the block",
+      "alt": "A bodega in Brooklyn, NY.",
+      "location": "Bodega, Brooklyn, NY",
+      "tags": [],
+      "film": "Kodak UltraMax 400",
+      "camera": "Nikon L35AF",
+      "optimizedImages": [
+        {
+          "width": 480,
+          "webp": "250803-umax400-L35-1-13/480w.webp",
+          "jpg": "250803-umax400-L35-1-13/480w.jpg"
+        },
+        {
+          "width": 800,
+          "webp": "250803-umax400-L35-1-13/800w.webp",
+          "jpg": "250803-umax400-L35-1-13/800w.jpg"
+        },
+        {
+          "width": 1200,
+          "webp": "250803-umax400-L35-1-13/1200w.webp",
+          "jpg": "250803-umax400-L35-1-13/1200w.jpg"
+        },
+        {
+          "width": 1600,
+          "webp": "250803-umax400-L35-1-13/1600w.webp",
+          "jpg": "250803-umax400-L35-1-13/1600w.jpg"
+        },
+        {
+          "width": 2000,
+          "webp": "250803-umax400-L35-1-13/2000w.webp",
+          "jpg": "250803-umax400-L35-1-13/2000w.jpg"
+        },
+        {
+          "width": 2400,
+          "webp": "250803-umax400-L35-1-13/2400w.webp",
+          "jpg": "250803-umax400-L35-1-13/2400w.jpg"
+        },
+        {
+          "width": 3200,
+          "webp": "250803-umax400-L35-1-13/3200w.webp",
+          "jpg": "250803-umax400-L35-1-13/3200w.jpg"
+        },
+        {
+          "width": "original",
+          "webp": "250803-umax400-L35-1-13/original.webp",
+          "jpg": "250803-umax400-L35-1-13.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2025-10-08-250801-go200-L35-1-31-edit",
+      "filename": "250801-go200-L35-1-31-edit.jpg",
+      "date": "August 1, 2025",
+      "description": "Boat friends",
+      "alt": "Three friends smiling and laughing on a boat in the harbor of Newport Ri",
+      "location": "Newport, RI",
+      "tags": [],
+      "film": "Kodak Gold 200",
+      "camera": "Nikon L35AF",
+      "optimizedImages": [
+        {
+          "width": 480,
+          "webp": "250801-go200-L35-1-31-edit/480w.webp",
+          "jpg": "250801-go200-L35-1-31-edit/480w.jpg"
+        },
+        {
+          "width": 800,
+          "webp": "250801-go200-L35-1-31-edit/800w.webp",
+          "jpg": "250801-go200-L35-1-31-edit/800w.jpg"
+        },
+        {
+          "width": 1200,
+          "webp": "250801-go200-L35-1-31-edit/1200w.webp",
+          "jpg": "250801-go200-L35-1-31-edit/1200w.jpg"
+        },
+        {
+          "width": 1600,
+          "webp": "250801-go200-L35-1-31-edit/1600w.webp",
+          "jpg": "250801-go200-L35-1-31-edit/1600w.jpg"
+        },
+        {
+          "width": 2000,
+          "webp": "250801-go200-L35-1-31-edit/2000w.webp",
+          "jpg": "250801-go200-L35-1-31-edit/2000w.jpg"
+        },
+        {
+          "width": 2400,
+          "webp": "250801-go200-L35-1-31-edit/2400w.webp",
+          "jpg": "250801-go200-L35-1-31-edit/2400w.jpg"
+        },
+        {
+          "width": 3200,
+          "webp": "250801-go200-L35-1-31-edit/3200w.webp",
+          "jpg": "250801-go200-L35-1-31-edit/3200w.jpg"
+        },
+        {
+          "width": "original",
+          "webp": "250801-go200-L35-1-31-edit/original.webp",
+          "jpg": "250801-go200-L35-1-31-edit.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2025-10-08-250803-sunsherb100-L35-1-21-edit",
+      "filename": "250803-sunsherb100-L35-1-21-edit.jpg",
+      "date": "July 26, 2025",
+      "description": "Rock on",
+      "alt": "A man holding up the rock horns at a concert surrounded by people in Los Angeles, CA.",
+      "location": "Warped Tour, Long Beach, CA",
+      "tags": [],
+      "film": "Photodom. Sun Sherbert 100",
+      "camera": "Nikon L35AF",
+      "optimizedImages": [
+        {
+          "width": 480,
+          "webp": "250803-sunsherb100-L35-1-21-edit/480w.webp",
+          "jpg": "250803-sunsherb100-L35-1-21-edit/480w.jpg"
+        },
+        {
+          "width": 800,
+          "webp": "250803-sunsherb100-L35-1-21-edit/800w.webp",
+          "jpg": "250803-sunsherb100-L35-1-21-edit/800w.jpg"
+        },
+        {
+          "width": 1200,
+          "webp": "250803-sunsherb100-L35-1-21-edit/1200w.webp",
+          "jpg": "250803-sunsherb100-L35-1-21-edit/1200w.jpg"
+        },
+        {
+          "width": 1600,
+          "webp": "250803-sunsherb100-L35-1-21-edit/1600w.webp",
+          "jpg": "250803-sunsherb100-L35-1-21-edit/1600w.jpg"
+        },
+        {
+          "width": 2000,
+          "webp": "250803-sunsherb100-L35-1-21-edit/2000w.webp",
+          "jpg": "250803-sunsherb100-L35-1-21-edit/2000w.jpg"
+        },
+        {
+          "width": 2400,
+          "webp": "250803-sunsherb100-L35-1-21-edit/2400w.webp",
+          "jpg": "250803-sunsherb100-L35-1-21-edit/2400w.jpg"
+        },
+        {
+          "width": 3200,
+          "webp": "250803-sunsherb100-L35-1-21-edit/3200w.webp",
+          "jpg": "250803-sunsherb100-L35-1-21-edit/3200w.jpg"
+        },
+        {
+          "width": "original",
+          "webp": "250803-sunsherb100-L35-1-21-edit/original.webp",
+          "jpg": "250803-sunsherb100-L35-1-21-edit.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2025-10-08-250717-go200-L35-1-4",
       "filename": "250717-go200-L35-1-4.jpg",
       "date": "July 17, 2025",
-      "description": "TODO_UPDATE_DESCRIPTION",
-      "alt": "TODO_UPDATE_ALT",
-      "location": "TODO_UPDATE_LOCATION",
+      "description": "Beach Babe",
+      "alt": "A women in a bikini sitting on the beach",
+      "location": "Rockaway Beach",
       "tags": [],
       "film": "Kodak Gold 200",
       "camera": "Nikon L35AF",
@@ -50,112 +368,6 @@
           "width": "original",
           "webp": "250717-go200-L35-1-4/original.webp",
           "jpg": "250717-go200-L35-1-4.jpg"
-        }
-      ]
-    },
-    {
-      "id": "2025-08-21-250717-go200-L35-1-28",
-      "filename": "250717-go200-L35-1-28.jpg",
-      "date": "July 17, 2025",
-      "description": "TODO_UPDATE_DESCRIPTION",
-      "alt": "TODO_UPDATE_ALT",
-      "location": "TODO_UPDATE_LOCATION",
-      "tags": [],
-      "film": "Kodak Gold 200",
-      "camera": "Nikon L35AF",
-      "optimizedImages": [
-        {
-          "width": 480,
-          "webp": "250717-go200-L35-1-28/480w.webp",
-          "jpg": "250717-go200-L35-1-28/480w.jpg"
-        },
-        {
-          "width": 800,
-          "webp": "250717-go200-L35-1-28/800w.webp",
-          "jpg": "250717-go200-L35-1-28/800w.jpg"
-        },
-        {
-          "width": 1200,
-          "webp": "250717-go200-L35-1-28/1200w.webp",
-          "jpg": "250717-go200-L35-1-28/1200w.jpg"
-        },
-        {
-          "width": 1600,
-          "webp": "250717-go200-L35-1-28/1600w.webp",
-          "jpg": "250717-go200-L35-1-28/1600w.jpg"
-        },
-        {
-          "width": 2000,
-          "webp": "250717-go200-L35-1-28/2000w.webp",
-          "jpg": "250717-go200-L35-1-28/2000w.jpg"
-        },
-        {
-          "width": 2400,
-          "webp": "250717-go200-L35-1-28/2400w.webp",
-          "jpg": "250717-go200-L35-1-28/2400w.jpg"
-        },
-        {
-          "width": 3200,
-          "webp": "250717-go200-L35-1-28/3200w.webp",
-          "jpg": "250717-go200-L35-1-28/3200w.jpg"
-        },
-        {
-          "width": "original",
-          "webp": "250717-go200-L35-1-28/original.webp",
-          "jpg": "250717-go200-L35-1-28.jpg"
-        }
-      ]
-    },
-    {
-      "id": "2025-08-21-250717-go200-L35-1-12",
-      "filename": "250717-go200-L35-1-12.jpg",
-      "date": "July 17, 2025",
-      "description": "TODO_UPDATE_DESCRIPTION",
-      "alt": "TODO_UPDATE_ALT",
-      "location": "TODO_UPDATE_LOCATION",
-      "tags": [],
-      "film": "Kodak Gold 200",
-      "camera": "Nikon L35AF",
-      "optimizedImages": [
-        {
-          "width": 480,
-          "webp": "250717-go200-L35-1-12/480w.webp",
-          "jpg": "250717-go200-L35-1-12/480w.jpg"
-        },
-        {
-          "width": 800,
-          "webp": "250717-go200-L35-1-12/800w.webp",
-          "jpg": "250717-go200-L35-1-12/800w.jpg"
-        },
-        {
-          "width": 1200,
-          "webp": "250717-go200-L35-1-12/1200w.webp",
-          "jpg": "250717-go200-L35-1-12/1200w.jpg"
-        },
-        {
-          "width": 1600,
-          "webp": "250717-go200-L35-1-12/1600w.webp",
-          "jpg": "250717-go200-L35-1-12/1600w.jpg"
-        },
-        {
-          "width": 2000,
-          "webp": "250717-go200-L35-1-12/2000w.webp",
-          "jpg": "250717-go200-L35-1-12/2000w.jpg"
-        },
-        {
-          "width": 2400,
-          "webp": "250717-go200-L35-1-12/2400w.webp",
-          "jpg": "250717-go200-L35-1-12/2400w.jpg"
-        },
-        {
-          "width": 3200,
-          "webp": "250717-go200-L35-1-12/3200w.webp",
-          "jpg": "250717-go200-L35-1-12/3200w.jpg"
-        },
-        {
-          "width": "original",
-          "webp": "250717-go200-L35-1-12/original.webp",
-          "jpg": "250717-go200-L35-1-12.jpg"
         }
       ]
     }
