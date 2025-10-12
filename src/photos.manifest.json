@@ -1,6 +1,63 @@
 {
   "photos": [
     {
+      "id": "2025-10-12-250717-go200-L35-1-23-edit",
+      "filename": "250717-go200-L35-1-23-edit.jpg",
+      "date": "July 17, 2025",
+      "description": "The Big City",
+      "alt": "Subway station in Brooklyn NY with the NYC skyline far in the distance.",
+      "location": "Brooklyn, NY",
+      "tags": [
+        "Brooklyn",
+        "City",
+        "Skyline"
+      ],
+      "film": "Kodak Gold 200",
+      "camera": "Nikon L35AF",
+      "optimizedImages": [
+        {
+          "width": 480,
+          "webp": "250717-go200-L35-1-23-edit/480w.webp",
+          "jpg": "250717-go200-L35-1-23-edit/480w.jpg"
+        },
+        {
+          "width": 800,
+          "webp": "250717-go200-L35-1-23-edit/800w.webp",
+          "jpg": "250717-go200-L35-1-23-edit/800w.jpg"
+        },
+        {
+          "width": 1200,
+          "webp": "250717-go200-L35-1-23-edit/1200w.webp",
+          "jpg": "250717-go200-L35-1-23-edit/1200w.jpg"
+        },
+        {
+          "width": 1600,
+          "webp": "250717-go200-L35-1-23-edit/1600w.webp",
+          "jpg": "250717-go200-L35-1-23-edit/1600w.jpg"
+        },
+        {
+          "width": 2000,
+          "webp": "250717-go200-L35-1-23-edit/2000w.webp",
+          "jpg": "250717-go200-L35-1-23-edit/2000w.jpg"
+        },
+        {
+          "width": 2400,
+          "webp": "250717-go200-L35-1-23-edit/2400w.webp",
+          "jpg": "250717-go200-L35-1-23-edit/2400w.jpg"
+        },
+        {
+          "width": 3200,
+          "webp": "250717-go200-L35-1-23-edit/3200w.webp",
+          "jpg": "250717-go200-L35-1-23-edit/3200w.jpg"
+        },
+        {
+          "width": "original",
+          "webp": "250717-go200-L35-1-23-edit/original.webp",
+          "jpg": "250717-go200-L35-1-23-edit.jpg"
+        }
+      ]
+    },
+    {
       "id": "2025-10-12-250831-portra400-L35-1-1-edit",
       "filename": "250831-portra400-L35-1-1-edit.jpg",
       "date": "September 1, 2025",
