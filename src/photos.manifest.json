@@ -7,7 +7,11 @@
       "description": "Monte",
       "alt": "A women and her dalmation dog on the streets of Brooklyn, NY.",
       "location": "Brooklyn, NY",
-      "tags": ["Ray", "Montague", "Brooklyn"],
+      "tags": [
+        "Ray",
+        "Montague",
+        "Brooklyn"
+      ],
       "film": "Kodak Portra 400",
       "camera": "Nikon L35AF",
       "optimizedImages": [
