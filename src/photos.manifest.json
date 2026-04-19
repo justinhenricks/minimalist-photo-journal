@@ -1,6 +1,59 @@
 {
   "photos": [
     {
+      "id": "2026-04-19-260415-go200-L35-1-14-edit",
+      "filename": "260415-go200-L35-1-14-edit.jpg",
+      "date": "January 4, 2026",
+      "description": "Tossing some shade",
+      "alt": "A beautiful beach in Mexico with a woman finding some shade under an umbrella",
+      "location": "Playa del Carmen, Mexico",
+      "tags": [],
+      "film": "Kodak Gold 200",
+      "camera": "Nikon L35AF",
+      "optimizedImages": [
+        {
+          "width": 480,
+          "webp": "260415-go200-L35-1-14-edit/480w.webp",
+          "jpg": "260415-go200-L35-1-14-edit/480w.jpg"
+        },
+        {
+          "width": 800,
+          "webp": "260415-go200-L35-1-14-edit/800w.webp",
+          "jpg": "260415-go200-L35-1-14-edit/800w.jpg"
+        },
+        {
+          "width": 1200,
+          "webp": "260415-go200-L35-1-14-edit/1200w.webp",
+          "jpg": "260415-go200-L35-1-14-edit/1200w.jpg"
+        },
+        {
+          "width": 1600,
+          "webp": "260415-go200-L35-1-14-edit/1600w.webp",
+          "jpg": "260415-go200-L35-1-14-edit/1600w.jpg"
+        },
+        {
+          "width": 2000,
+          "webp": "260415-go200-L35-1-14-edit/2000w.webp",
+          "jpg": "260415-go200-L35-1-14-edit/2000w.jpg"
+        },
+        {
+          "width": 2400,
+          "webp": "260415-go200-L35-1-14-edit/2400w.webp",
+          "jpg": "260415-go200-L35-1-14-edit/2400w.jpg"
+        },
+        {
+          "width": 3200,
+          "webp": "260415-go200-L35-1-14-edit/3200w.webp",
+          "jpg": "260415-go200-L35-1-14-edit/3200w.jpg"
+        },
+        {
+          "width": "original",
+          "webp": "260415-go200-L35-1-14-edit/original.webp",
+          "jpg": "260415-go200-L35-1-14-edit.jpg"
+        }
+      ]
+    },
+    {
       "id": "2025-11-29-250919-fuji400-L35-1-4-edit",
       "filename": "250919-fuji400-L35-1-4-edit.jpg",
       "date": "September 19, 2025",
@@ -60,11 +113,7 @@
       "description": "The Big City",
       "alt": "Subway station in Brooklyn NY with the NYC skyline far in the distance.",
       "location": "Brooklyn, NY",
-      "tags": [
-        "Brooklyn",
-        "City",
-        "Skyline"
-      ],
+      "tags": ["Brooklyn", "City", "Skyline"],
       "film": "Kodak Gold 200",
       "camera": "Nikon L35AF",
       "optimizedImages": [
@@ -117,11 +166,7 @@
       "description": "Monte",
       "alt": "A women and her dalmation dog on the streets of Brooklyn, NY.",
       "location": "Brooklyn, NY",
-      "tags": [
-        "Ray",
-        "Montague",
-        "Brooklyn"
-      ],
+      "tags": ["Ray", "Montague", "Brooklyn"],
       "film": "Kodak Portra 400",
       "camera": "Nikon L35AF",
       "optimizedImages": [
