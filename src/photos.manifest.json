@@ -113,7 +113,11 @@
       "description": "The Big City",
       "alt": "Subway station in Brooklyn NY with the NYC skyline far in the distance.",
       "location": "Brooklyn, NY",
-      "tags": ["Brooklyn", "City", "Skyline"],
+      "tags": [
+        "Brooklyn",
+        "City",
+        "Skyline"
+      ],
       "film": "Kodak Gold 200",
       "camera": "Nikon L35AF",
       "optimizedImages": [
@@ -166,7 +170,11 @@
       "description": "Monte",
       "alt": "A women and her dalmation dog on the streets of Brooklyn, NY.",
       "location": "Brooklyn, NY",
-      "tags": ["Ray", "Montague", "Brooklyn"],
+      "tags": [
+        "Ray",
+        "Montague",
+        "Brooklyn"
+      ],
       "film": "Kodak Portra 400",
       "camera": "Nikon L35AF",
       "optimizedImages": [
