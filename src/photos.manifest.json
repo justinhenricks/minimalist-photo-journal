@@ -1,6 +1,59 @@
 {
   "photos": [
     {
+      "id": "2026-08-08-260722-go200-L35-1-32-edit",
+      "filename": "260722-go200-L35-1-32-edit.jpg",
+      "date": "July 22, 2026",
+      "description": "Summer in the city",
+      "alt": "A fully blossomed pink magnolia tree in central park, nyc",
+      "location": "Central Park, NYC",
+      "tags": [],
+      "film": "Kodak Gold 200",
+      "camera": "Nikon L35AF",
+      "optimizedImages": [
+        {
+          "width": 480,
+          "webp": "260722-go200-L35-1-32-edit/480w.webp",
+          "jpg": "260722-go200-L35-1-32-edit/480w.jpg"
+        },
+        {
+          "width": 800,
+          "webp": "260722-go200-L35-1-32-edit/800w.webp",
+          "jpg": "260722-go200-L35-1-32-edit/800w.jpg"
+        },
+        {
+          "width": 1200,
+          "webp": "260722-go200-L35-1-32-edit/1200w.webp",
+          "jpg": "260722-go200-L35-1-32-edit/1200w.jpg"
+        },
+        {
+          "width": 1600,
+          "webp": "260722-go200-L35-1-32-edit/1600w.webp",
+          "jpg": "260722-go200-L35-1-32-edit/1600w.jpg"
+        },
+        {
+          "width": 2000,
+          "webp": "260722-go200-L35-1-32-edit/2000w.webp",
+          "jpg": "260722-go200-L35-1-32-edit/2000w.jpg"
+        },
+        {
+          "width": 2400,
+          "webp": "260722-go200-L35-1-32-edit/2400w.webp",
+          "jpg": "260722-go200-L35-1-32-edit/2400w.jpg"
+        },
+        {
+          "width": 3200,
+          "webp": "260722-go200-L35-1-32-edit/3200w.webp",
+          "jpg": "260722-go200-L35-1-32-edit/3200w.jpg"
+        },
+        {
+          "width": "original",
+          "webp": "260722-go200-L35-1-32-edit/original.webp",
+          "jpg": "260722-go200-L35-1-32-edit.jpg"
+        }
+      ]
+    },
+    {
       "id": "2026-04-19-260415-go200-L35-1-14-edit",
       "filename": "260415-go200-L35-1-14-edit.jpg",
       "date": "January 4, 2026",
